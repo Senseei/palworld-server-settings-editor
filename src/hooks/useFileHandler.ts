@@ -32,12 +32,11 @@ export function useFileHandler() {
   )
 
   const handleDownload = useCallback(
-    async (config: PalworldConfig, asNew: boolean = true) => {
+    async (config: PalworldConfig) => {
       const content = write(config)
-      const downloadFilename = asNew ? 'PalWorldSettings_modified.ini' : filename
 
       try {
-        await gatewayRef.current.writeFile(content, downloadFilename)
+        await gatewayRef.current.writeFile(content, filename)
       } catch (err) {
         if (err instanceof UserCancelledError) return
         throw err

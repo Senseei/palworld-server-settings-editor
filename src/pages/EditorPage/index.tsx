@@ -21,8 +21,7 @@ export function EditorPage() {
         uiCount={config?.uiSettingsCount ?? 48}
         totalCount={config?.totalSettingsCount ?? 0}
         onUpload={onUpload}
-        onDownloadNew={() => config && handleDownload(config, true)}
-        onOverwrite={() => config && handleDownload(config, false)}
+        onSave={() => config && handleDownload(config)}
       />
 
       {parseError && (
